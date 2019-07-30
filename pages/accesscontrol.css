@@ -1,0 +1,20 @@
+.searchable-container{margin:20px 0 0 0;}
+.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF;}
+.searchable-container label.btn-default{width:90%;border:1px solid blue;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+.searchable-container .btn-group{width:200px;margin-left:140px;}
+.container{padding-top:20px;margin-bottom:20px;width:auto}
+.chooseut{margin-left:400px}
+.bigdiv{background-color:white;width:auto}
+.card-body {margin-left:400px}
+.card-body label{font-size:22px;color:#3d405c}
+.card-body select{width:300px;height:40px}
+.submit{margin-left:180px}
+.searchable-container .bizmoduleselect{margin-left:200px;width:1000px}
