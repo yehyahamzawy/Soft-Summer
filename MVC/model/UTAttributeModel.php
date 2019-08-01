@@ -12,7 +12,7 @@ class UTAttModel implements CRUD
 	function __construct($ID)
 	{
 		
-		$this->DB = new helper("localhost", "root", "","se1");
+		$this->DB = new helper("localhost", "root", "","sumdb");
 
 		$Row=$this->DB->selectIndexedArray("*", "usertypeattributes", NULL );
 		

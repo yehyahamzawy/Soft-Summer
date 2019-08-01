@@ -15,7 +15,7 @@ class userValueModel implements CRUD
 	function __construct($ID)
 	{
 		
-		$this->DB = new helper("localhost", "root", "","se1");
+		$this->DB = new helper("localhost", "root", "","sumdb");
 
 		$Row=$this->DB->selectIndexedArray("*", "uservalues", NULL );
 		
@@ -31,7 +31,7 @@ class userValueModel implements CRUD
     
 	function readAllTable(){
 		$indexedArray = array();
-		$innerJoinSelection = "SELECT uservalues.ID, uservalues.userTypeOptionID, uservalues.value, uservalues.userID, usertypeattributes.attributeID, attribute.attributeName,user.fName, user.lName FROM uservalues INNER JOIN usertypeattributes ON uservalues.userTypeOptionID=usertypeattributes.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID INNER JOIN user ON uservalues.userID=user.ID WHERE uservalues.isDeleted = 0";
+		$innerJoinSelection = "SELECT uservalues.ID, uservalues.userTypeAttributeID, uservalues.value, uservalues.userID, usertypeattributes.attributeID, attribute.attributeName,user.fName, user.lName FROM uservalues INNER JOIN usertypeattributes ON uservalues.userTypeAttributeID=usertypeattributes.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID INNER JOIN user ON uservalues.userID=user.ID WHERE uservalues.isDeleted = 0";
 		
 		//echo $innerJoinSelection;
 		
@@ -54,7 +54,7 @@ class userValueModel implements CRUD
 	
 	function readAllModal(){
 		$indexedArray = array();
-		$innerJoinSelection = "SELECT usertypeattributes.ID, usertypeattributes.userTypeID, usertypeattributes.attributeID, attribute.attributeName, usertype.type FROM usertypeattributes INNER JOIN usertype ON usertypeattributes.userTypeID=usertype.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID WHERE usertypeattributes.isDeleted = 0";
+		$innerJoinSelection = "SELECT usertypeattributes.ID, usertypeattributes.userTypeID, usertypeattributes.attributeID, attribute.attributeName, usertype.userType FROM usertypeattributes INNER JOIN usertype ON usertypeattributes.userTypeID=usertype.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID WHERE usertypeattributes.isDeleted = 0";
 		
 		//echo $innerJoinSelection;
 		
@@ -72,7 +72,7 @@ class userValueModel implements CRUD
 
 	function readAllModalUsers(){
 		$indexedArray = array();
-		$innerJoinSelection = "SELECT user.ID,usertypeattributes.userTypeID, usertypeattributes.attributeID, attribute.attributeName, usertype.type, user.fName, user.lName FROM usertypeattributes INNER JOIN usertype ON usertypeattributes.userTypeID=usertype.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID INNER JOIN user ON usertypeattributes.userTypeID=user.userTypeID WHERE usertypeattributes.isDeleted = 0 ";
+		$innerJoinSelection = "SELECT user.ID,usertypeattributes.userTypeID, usertypeattributes.attributeID, attribute.attributeName, usertype.userType, user.fName, user.lName FROM usertypeattributes INNER JOIN usertype ON usertypeattributes.userTypeID=usertype.ID INNER JOIN attribute ON usertypeattributes.attributeID=attribute.ID INNER JOIN user ON usertypeattributes.userTypeID=user.userTypeID WHERE usertypeattributes.isDeleted = 0";
 		
 		//echo $innerJoinSelection;
 		
