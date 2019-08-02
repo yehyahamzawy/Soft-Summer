@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -20,30 +20,36 @@ th {text-align: left;}
 <?php
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','peter','abc123','my_db');
+$con = mysqli_connect('localhost','root','','hotel');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM user WHERE id = '".$q."'";
+$sql="SELECT * FROM reservation  ORDER BY appointment";
 $result = mysqli_query($con,$sql);
 
 echo "<table>
 <tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Age</th>
-<th>Hometown</th>
-<th>Job</th>
+<th>ID</th>
+<th>UserID</th>
+<th>CheckIn</th>
+<th>CheckOut</th>
+<th>isApproved</th>
+<th>isDeletes</th>
+<th>Appointment</th>
+<th>Staying</th>
 </tr>";
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>" . $row['FirstName'] . "</td>";
-    echo "<td>" . $row['LastName'] . "</td>";
-    echo "<td>" . $row['Age'] . "</td>";
-    echo "<td>" . $row['Hometown'] . "</td>";
-    echo "<td>" . $row['Job'] . "</td>";
+    echo "<td>" . $row['ID'] . "</td>";
+    echo "<td>" . $row['userID'] . "</td>";
+    echo "<td>" . $row['checkIn'] . "</td>";
+    echo "<td>" . $row['checkOut'] . "</td>";
+    echo "<td>" . $row['isApproved'] . "</td>";
+    echo "<td>" . $row['isDeleted'] . "</td>";
+    echo "<td>" . $row['appointment'] . "</td>";
+    echo "<td>" . $row['staying'] . "</td>";
     echo "</tr>";
 }
 echo "</table>";
