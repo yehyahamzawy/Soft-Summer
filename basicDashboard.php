@@ -21,18 +21,7 @@
                                             <a class="nav-link" href="index.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Database Control</a>
                                             <div id="submenu-1-2" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
-                                                    <?php 
-                                                    include_once "../dashboardLinks.php";
-                                                     $links = getLinks();
-
-                                                    foreach($links as $row)
-                                                    {
-                                                        echo '<li class="nav-item">
-                                                        <a class="nav-link" href="'.$row["URL"].'">'.$row["friendlyName"].'</a>
-                                                    </li>';
-                                                    }
-                                                    
-                                                    ?>
+                                                   
                                                     
                                                         
                                                                     

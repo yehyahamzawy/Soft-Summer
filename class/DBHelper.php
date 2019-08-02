@@ -13,11 +13,7 @@ class helper
   function db_connect($host, $name, $password, $database)
    {
  		  $this->connect = new mysqli($host, $name, $password, $database);
-      if ($this->connect->connect_error) 
-      {
-        die("Connection failed: " . $connect->connect_error);
-        
-      }
+      
 
         return $this->connect;
   }
@@ -28,10 +24,7 @@ class helper
     $result = mysqli_query($this->connect, $query);
     
         
-    if (!$result)
-    {
-    echo("Error description: " . mysqli_error($this->db_connect()));
-    }
+    
   return $result;
   }
 
