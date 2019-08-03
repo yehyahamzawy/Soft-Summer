@@ -34,7 +34,7 @@ include '../dbheader.php';
         <!-- end navbar -->
         <!-- ============================================================== -->
         <?php
-include '../basicDashboard.php';
+//include '../basicDashboard.php';
 ?>
 
 
