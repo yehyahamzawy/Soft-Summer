@@ -22,7 +22,7 @@ function header()
   $title1 = $this->title1;
   $title2 = $this->title2;
   $previous = $this->previous;
-  include_once "../adminPanel/basicGuestHeader.php";
+  include_once "../adminPanel/basicReceptionHeader.php";
 }
 function footer()
 {
@@ -261,6 +261,202 @@ function reviews($reviews)
 
 
 ';
+}
+
+function checkin()
+{
+    echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+
+    
+    <br>  
+    <hr>
+    
+    
+    
+    
+    
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+       
+        <form>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+             <select id="subject" name="subject" class="form-control" required="required">
+             <option value="na" selected="">Select User..</option>
+             <option value="">2 Night</option>
+             
+         </select>
+        </div> <!-- form-group// -->
+        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+20</option>
+                <option value="1">+972</option>
+                <option value="2">+198</option>
+                <option value="3">+701</option>
+            </select>
+            <input name="" class="form-control" placeholder="Phone number" type="text">
+        </div> <!-- form-group// -->
+        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-users"></i> </span>
+            </div>
+            <select class="custom-select" >
+                <option selected="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-money-bill-wave"></i>
+                </span>
+            </div>
+            <select class="form-control">
+                <option selected=""> Payment Method..</option>
+                <option>Cash</option>
+                <option>Credit Card</option>
+                
+            </select>
+
+            
+        </div> <!-- form-group end.// -->
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Check In  </button>
+    </div> <!-- form-group// -->                                                   
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    
+   ';
+}
+
+
+function checkout()
+{
+    echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+
+
+    
+    <br>  
+    <hr>
+    
+    
+    
+    
+    
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+       
+        <form>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+             <select id="subject" name="subject" class="form-control" required="required">
+             <option value="na" selected="">Select User..</option>
+             <option value="">2 Night</option>
+             
+         </select>
+        </div> <!-- form-group// -->
+        
+        <div class="form-group">
+        <label for="name">
+            Review</label>
+        <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+            placeholder="Type Review"></textarea>
+    </div>
+        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-star-half-alt"></i> </span>
+            </div>
+            <select class="custom-select" >
+                <option selected="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+            </select>
+            
+        </div> <!-- form-group// -->
+
+        
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Check out  </button>
+    </div> <!-- form-group// -->                                                   
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    
+   ';
+}
+
+function complain()
+{
+    echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+
+
+    
+    <br>  
+    <hr>
+    
+    
+    
+    
+    
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+       
+        <form>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+             <select id="subject" name="subject" class="form-control" required="required">
+             <option value="na" selected="">Select User..</option>
+             <option value="">2 Night</option>
+             
+         </select>
+        </div> <!-- form-group// -->
+        
+        <div class="form-group">
+        <label for="name">
+            Complaint</label>
+        <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+            placeholder="Type Complaint"></textarea>
+    </div>
+        
+        
+
+        
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Record  </button>
+    </div> <!-- form-group// -->                                                   
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    
+   ';
 }
 
 }

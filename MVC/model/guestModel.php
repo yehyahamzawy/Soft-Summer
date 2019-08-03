@@ -126,10 +126,10 @@ class guestModel implements CRUD
 		return $userTypeName;
 	}
 
-    function reviewsData()
+    function reviewsData($roomID)
     {
         $indexedArray = array();
-		$innerJoinSelection = "SELECT reviews.*, user.fName, user.lName FROM reviews INNER JOIN user ON user.ID=reviews.userID WHERE reviews.isDeleted=0 AND reviews.roomID=1";
+		$innerJoinSelection = "SELECT reviews.*, user.fName, user.lName FROM reviews INNER JOIN user ON user.ID=reviews.userID WHERE reviews.isDeleted=0 AND reviews.roomID=".$roomID;
 		
 		//echo $innerJoinSelection;
 		
@@ -160,7 +160,9 @@ class guestModel implements CRUD
             $i++;
             
          }
+         if ($i > 0){
          $totalRating = ($totalRating / $i);
+         }
          return $totalRating;
     }
     function getRooms()
