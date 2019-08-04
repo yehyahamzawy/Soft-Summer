@@ -3,7 +3,7 @@
 
 
 
-class guestView
+class receptionView
 {
   public $title1;
   public $title2;
@@ -263,7 +263,7 @@ function reviews($reviews)
 ';
 }
 
-function checkin()
+function checkin($users)
 {
     echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
@@ -279,14 +279,19 @@ function checkin()
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
        
-        <form>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-             </div>
-             <select id="subject" name="subject" class="form-control" required="required">
-             <option value="na" selected="">Select User..</option>
-             <option value="">2 Night</option>
+    <form method = "POST" action = "../MVC/controller/receptionControl.php?chkin">
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+         <select id="reservationID" name="reservationID" class="form-control" required="required">
+         <option value="na" selected="">Select User..</option>
+         ';
+         foreach($users as $Row)
+         {
+         echo '<option value="'.$Row["ID"].'">'.$Row["fName"].' '.$Row["lName"].'</option>';
+         }
+         echo'
              
          </select>
         </div> <!-- form-group// -->
@@ -297,11 +302,9 @@ function checkin()
             </div>
             <select class="custom-select" style="max-width: 120px;">
                 <option selected="">+20</option>
-                <option value="1">+972</option>
-                <option value="2">+198</option>
-                <option value="3">+701</option>
+               
             </select>
-            <input name="" class="form-control" placeholder="Phone number" type="text">
+            <input name="" class="form-control" placeholder="Phone number" type="text" pattern="[1][0-9]{9}"title="11 numbers starts with 0 and 1"required>
         </div> <!-- form-group// -->
         
         <div class="form-group input-group">
@@ -344,7 +347,7 @@ function checkin()
 }
 
 
-function checkout()
+function checkout($users)
 {
     echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 
@@ -360,14 +363,19 @@ function checkout()
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
        
-        <form>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-             </div>
-             <select id="subject" name="subject" class="form-control" required="required">
-             <option value="na" selected="">Select User..</option>
-             <option value="">2 Night</option>
+    <form method = "POST" action = "../MVC/controller/receptionControl.php?chkout">
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+         <select id="reservationID" name="reservationID" class="form-control" required="required">
+         <option value="na" selected="">Select User..</option>
+         ';
+         foreach($users as $Row)
+         {
+         echo '<option value="'.$Row["ID"].'">'.$Row["fName"].' '.$Row["lName"].'</option>';
+         }
+         echo'
              
          </select>
         </div> <!-- form-group// -->
@@ -375,7 +383,7 @@ function checkout()
         <div class="form-group">
         <label for="name">
             Review</label>
-        <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+        <textarea name="comment" id="comment" class="form-control" rows="4" cols="25" required="required"
             placeholder="Type Review"></textarea>
     </div>
         
@@ -383,8 +391,8 @@ function checkout()
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fas fa-star-half-alt"></i> </span>
             </div>
-            <select class="custom-select" >
-                <option selected="1">1</option>
+            <select class="custom-select" name = "rating" >
+                <option value = "1" selected="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -410,7 +418,7 @@ function checkout()
    ';
 }
 
-function complain()
+function complain($users)
 {
     echo '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 
@@ -426,22 +434,25 @@ function complain()
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
        
-        <form>
+        <form method = "POST" action = "../MVC/controller/receptionControl.php?cmpln">
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
              </div>
-             <select id="subject" name="subject" class="form-control" required="required">
+             <select id="ID" name="ID" class="form-control" required="required">
              <option value="na" selected="">Select User..</option>
-             <option value="">2 Night</option>
-             
-         </select>
+             ';
+             foreach($users as $Row)
+             {
+             echo '<option value="'.$Row["ID"].'">'.$Row["fName"].' '.$Row["lName"].'</option>';
+             }
+         echo'</select>
         </div> <!-- form-group// -->
         
         <div class="form-group">
         <label for="name">
             Complaint</label>
-        <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+        <textarea name="complaint" id="complaint" class="form-control" rows="4" cols="25" required="required"
             placeholder="Type Complaint"></textarea>
     </div>
         

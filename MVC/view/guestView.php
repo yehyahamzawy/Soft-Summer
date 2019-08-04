@@ -37,12 +37,18 @@ function table($data)
 
 
     echo '
-    
+    <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin = "Anonymous"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin = "Anonymous"></script>
+<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity = "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin = "Anonymous"></script>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/> 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
     
     <div class="card">
         <h5 class="card-header">Rooms</h5>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" id = "tabla">
                 <thead>
                     <tr>
                         
@@ -83,7 +89,9 @@ function table($data)
                     
                 echo '</tbody>
             </table>
-       
+            <script>
+            $("#tabla").DataTable();
+        </script>
     </div>
 </div>
 </div>
@@ -136,9 +144,9 @@ function reservation($data,$ratingTotal)
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label for="name">
+                          <label for="date">
                               When will you see us?</label>
-                          <input type="date" class="form-control" id="name" placeholder="Enter name" required="required" />
+                          <input type="date" class="form-control" id="date"  min="2019-08-04" max="2020-08-04" title = "Bad date" required = "Required">
                       </div>
                       <div class="form-group">
                           </div>
@@ -168,7 +176,7 @@ function reservation($data,$ratingTotal)
                       <div class="form-group">
                           <label for="name">
                               Special request?</label>
-                          <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+                          <textarea name="message" id="message" class="form-control" rows="4" cols="25" 
                               placeholder="Type Request"></textarea>
                       </div>
                   </div>

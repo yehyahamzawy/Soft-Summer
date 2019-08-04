@@ -6,11 +6,11 @@ require_once "../MVC/model/receptionModel.php";
 
 $view = new receptionView(array('editor' => "../pages/editor.php", 'checker' => "../pages/checker.php" ),"Hello","testing page");
 $model = new receptionModel(1);
-$users = $model->getReservedUsers();
+$users = $model->getCheckedInUsers();
 
 
 $view->header();
-$view->checkin($users);
+$view->checkout($users);
 $view->footer();
 
 

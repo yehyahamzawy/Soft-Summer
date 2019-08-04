@@ -15,13 +15,13 @@
                             </li>
                             
                                         <li class="nav-item">
-                                            <a class="nav-link" href="editemployeeforms.php">Check in guest</a>
+                                            <a class="nav-link" href="checkin.php">Check in guest</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="addressform.php">Check out guest</a>
+                                            <a class="nav-link" href="checkout.php">Check out guest</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="addressform.php">Record Complaint</a>
+                                            <a class="nav-link" href="complaint.php">Record Complaint</a>
                                         </li>
                                        
                                     

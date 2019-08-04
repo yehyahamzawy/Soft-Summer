@@ -29,7 +29,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            
+                           
                                    
                                 </ul>
                             </li>
@@ -41,14 +41,23 @@
     John Abraham</h5>
                                        
                                     </div>
+                                    <?php
+                                    if(!empty($_SESSION["ID"]))
+                                    {
+                                        echo '<a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Login</a>';
+                                    }
+                                    else{
+                                        echo '<a class="dropdown-item" href="login.php"><i class="fas fa-power-off mr-2"></i>Logout</a>';
+                                    }
+                                    ?>
                                     
-                                    <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
+            
    
 
                                                     
