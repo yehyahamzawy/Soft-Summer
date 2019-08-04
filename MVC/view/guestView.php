@@ -176,8 +176,8 @@ function reservation($data,$ratingTotal,$reserver)
                       <div class="form-group">
                           <label for="name">
                               Special request?</label>
-                          <textarea name="request" id="request" class="form-control" rows="4" cols="25" 
-                              placeholder="Type Request"></textarea>
+                          <input type="text" name="request" pattern="[A-Za-z]{1,}" id="request" class="form-control" rows="4" cols="25" 
+                              placeholder="Type Request">
                       </div>
                   </div>
                   <div class="col-md-12">
