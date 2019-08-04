@@ -105,7 +105,7 @@ function table($data)
 
 }
 
-function reservation($data,$ratingTotal)
+function reservation($data,$ratingTotal,$reserver)
 {
   echo '
   <style>
@@ -146,15 +146,15 @@ function reservation($data,$ratingTotal)
                       <div class="form-group">
                           <label for="date">
                               When will you see us?</label>
-                          <input type="date" class="form-control" id="date"  min="2019-08-04" max="2020-08-04" title = "Bad date" required = "Required">
+                          <input type="date" class="form-control" id="date" name="date"  min="2019-08-04" max="2020-08-04" title = "Bad date" required = "Required">
                       </div>
                       <div class="form-group">
                           </div>
                       <div class="form-group">
                           <label for="subject">
                               How long are you staying?</label>
-                          <select id="subject" name="subject" class="form-control" required="required">
-                              <option value="na" selected="">1 Night</option>
+                          <select id="staying" name="staying" class="form-control" required="required">
+                              <option value="1" selected="1">1 Night</option>
                               ';
                               $i = 2;
                               while($i < 30)
@@ -176,7 +176,7 @@ function reservation($data,$ratingTotal)
                       <div class="form-group">
                           <label for="name">
                               Special request?</label>
-                          <textarea name="message" id="message" class="form-control" rows="4" cols="25" 
+                          <textarea name="request" id="request" class="form-control" rows="4" cols="25" 
                               placeholder="Type Request"></textarea>
                       </div>
                   </div>
@@ -187,10 +187,12 @@ function reservation($data,$ratingTotal)
                     echo '<button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
                     Reserve</button>';
                 }
+                
                 else {
                   echo "room not available";
-                }   
-                
+                } 
+
+               
             
                    
                     
@@ -198,8 +200,18 @@ function reservation($data,$ratingTotal)
                       
                   </div>
               </div>
-              </form>
-          </div>
+              </form>';
+              if(!empty($_SESSION))
+              { 
+              if($_SESSION["userID"]==$reserver)
+              {
+                  echo '<form method = "POST" action = "../MVC/controller/guestControl.php?ID='.$data["ID"].'&cncl">
+                  <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                  Cancel Reservation</button>
+                  </form>';
+              }
+              }
+         echo' </div>
       </div>
       <div class="col-md-4">
           <form>

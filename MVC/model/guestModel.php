@@ -171,6 +171,12 @@ class guestModel implements CRUD
 		return $rooms;
 	}
 
+	function reserverID($roomID)
+    {
+		$reserver = $this->DB->selectFetchArray("userID","reservation","reservation.roomID = ".$roomID." AND reservation.checkIn = 0 AND reservation.checkOut = 0");
+		return $reserver["userID"];
+	}
+
 }
 
 ?>

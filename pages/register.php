@@ -20,8 +20,17 @@ echo '
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
        
-    <form method = "POST" action = "../MVC/controller/logging.php?login">
-    
+    <form method = "POST" action = "../MVC/controller/logging.php?add">
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+         <input name="fName" class="form-control" placeholder="First Name" type="text" pattern="[A-Za-z]{1,32}" style="max-width: 120px;">
+         
+        
+     
+     <input name="lName" class="form-control" placeholder="Last Name" type="text" pattern="[A-Za-z]{1,32}" title="No special characters"required>
+        </div> <!-- form-group// -->
         
         <div class="form-group input-group">
             <div class="input-group-prepend">
@@ -41,7 +50,7 @@ echo '
         
         
         <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> login  </button>
+        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
     </div> <!-- form-group// -->                                                   
     </form>
     </article>

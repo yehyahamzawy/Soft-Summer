@@ -174,7 +174,7 @@ class receptionModel implements CRUD
     function getReservedUsers()
 	{
 		$indexedArray = array();
-		$innerJoinSelection = "SELECT user.fName, user.lName, reservation.checkIn, reservation.ID FROM user INNER JOIN reservation ON user.ID=reservation.userID WHERE user.isDeleted = 0 AND reservation.checkIn=0 AND user.userTypeID=2";
+		$innerJoinSelection = "SELECT user.fName, user.lName, reservation.checkIn, reservation.ID FROM user INNER JOIN reservation ON user.ID=reservation.userID WHERE user.isDeleted = 0 AND reservation.checkIn=0 AND user.userTypeID=2 AND reservation.isDeleted=0";
 		
 		//echo $innerJoinSelection;
 		
@@ -192,7 +192,7 @@ class receptionModel implements CRUD
     function getCheckedInUsers()
 	{
 		$indexedArray = array();
-		$innerJoinSelection = "SELECT user.fName, user.lName, reservation.checkIn, reservation.ID FROM user INNER JOIN reservation ON user.ID=reservation.userID WHERE user.isDeleted = 0 AND reservation.checkIn=1 AND user.userTypeID=2";
+		$innerJoinSelection = "SELECT user.fName, user.lName, reservation.checkIn, reservation.ID FROM user INNER JOIN reservation ON user.ID=reservation.userID WHERE user.isDeleted = 0 AND reservation.checkIn=1 AND reservation.checkOut=0 AND user.userTypeID=2 AND reservation.isDeleted=0";
 		
 		//echo $innerJoinSelection;
 		
